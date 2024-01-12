@@ -112,10 +112,6 @@ section {
     height: 3rem;
 }
 
-.commented-img {
-    cursor: pointer;
-}
-
 .picture-comment {
     display: flex;
     justify-content: space-between;
