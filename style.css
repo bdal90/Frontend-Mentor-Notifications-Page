@@ -58,12 +58,17 @@ span:hover,
     align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .header__first-heading,
 .name {
     color: var(--very-dark-blue);
     font-weight: 800;
+}
+
+.header__first-heading {
+    font-size: larger;
 }
 
 .header__nbr {
