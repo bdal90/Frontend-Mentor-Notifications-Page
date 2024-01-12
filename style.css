@@ -130,8 +130,8 @@ section {
 
 .red-dot {
     background-color: red;
-    height: .5rem;
-    width: .5rem;
+    min-height: .5rem;
+    min-width: .5rem;
     border-radius: 50%;
 }
 
