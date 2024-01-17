@@ -1,34 +1,27 @@
 :root {
-    --dot: hsl(1, 90%, 64%);
-    --notification-nbr: hsl(219, 85%, 26%);
-
-    --card-bg: hsl(0, 0%, 100%);
-    --very-light-grayish-blue: hsl(210, 60%, 98%);
-    --light-grayish-blue-1: hsl(211, 68%, 94%);
-    --light-grayish-blue-2: hsl(205, 33%, 90%);
-    --grayish-blue: hsl(219, 14%, 63%);
-    --dark-grayish-blue: hsl(219, 12%, 42%);
-    --very-dark-blue: hsl(224, 21%, 14%);
+    --tomato: hsl(4, 100%, 67%);
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
 }
+
+/*------------------GENERAL---------------------*/
 
 *,
 *::before,
 *::after {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 16px;
-    color: var(--dark-grayish-blue);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--very-light-grayish-blue);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+    color: var(--dark-slate-grey);
+    background-color: var(--charcoal-grey);
+    line-height: 1.5;
+    height: 100vh;
 }
 
 img {
@@ -36,129 +29,214 @@ img {
     display: block;
 }
 
-span:hover,
-.header__text:hover {
-    cursor: pointer;
-    color: var(--notification-nbr);
-    transition: 0.5s;
+li {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+}
+
+footer {
+    display: none;
+}
+
+/*---------------------CARD-------------------*/
+.desktop-img {
+    display: none;
 }
 
 .card {
+    max-width: 58rem;
     background-color: white;
-    max-width: 43.75rem;
-    border-radius: 0.625rem;
 }
 
 .container {
-    margin: 1rem;
+    padding: 2rem 1.5rem;
 }
 
-.header .container {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 0;
+.container__h1 {
+    font-size: 2.5rem;
 }
 
-.header__first-heading,
-.name {
-    color: var(--very-dark-blue);
-    font-weight: 800;
+.container__par {
+    padding: 2rem 0;
 }
 
-.header__first-heading {
-    font-size: larger;
-}
-
-.header__nbr {
-    background-color: var(--notification-nbr);
-    color: white;
-    font-weight: 800;
-    font-size: larger;
-    padding: .25rem .8rem;
-    border-radius: 5px;
-    margin-left: .7rem;
-}
-
-.header__text {
-    margin-left: auto;
-}
-
-.main__notification-item {
+.list-item {
     display: flex;
     gap: 1rem;
+}
+
+.list-item + .list-item {
+    margin-top: .75rem;
+}
+
+.form {
+    margin-top: 2.5rem;
+}
+
+.form__par {
+    font-weight: 700;
+}
+
+.input {
+    margin: .5rem 0;
     padding: 1rem;
-    border-radius: 10px;
+    min-width: 100%;
+    border: 1px solid var(--grey);
+    border-radius: 8px;
+}
+
+::placeholder {
+    color: var(--grey);
+}
+
+.form__btn,
+.dismiss-btn {
+    background-color: var(--dark-slate-grey);
+    color: white;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    min-width: 100%;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
     cursor: pointer;
 }
 
-.main__notification-item + .main__notification-item {
-    margin-top: 1rem;
+.form__btn:hover,
+.dismiss-btn:hover,
+.form__btn:focus,
+.dismiss-btn:focus {
+    background-image: linear-gradient(130deg, rgb(210, 92, 92), rgb(248, 154, 117));
+    transition: 0.7s;
 }
 
-.main__notification-item--unread {
-    background-color: var(--light-grayish-blue-1);
+.card {
+    display: block;
 }
 
-.notification-right-side {
-    width: 100%;
+/*-----------------SUCCESS MSG-----------------*/
+
+.card.success {
+    display: none;
 }
 
-section {
+.success-msg.success{
+    background-color: white;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 2rem;
+    padding: 10rem 1.5rem 2rem 1.5rem;
 }
 
-.avatar,
-.commented-img {
-    width: 3rem;
-    height: 3rem;
+.success-msg {
+    display: none;
 }
 
-.picture-comment {
-    display: flex;
-    justify-content: space-between;
+.success-msg__h1 {
+    line-height: 1;
 }
 
-.comment-on-post,
-.group {
-    color: var(--dark-grayish-blue);
+.tick--success {
+    align-self: flex-start;
+}
+
+.email-address {
     font-weight: 800;
 }
 
-.red-dot {
-    background-color: red;
-    min-height: .5rem;
-    min-width: .5rem;
-    border-radius: 50%;
+.dismiss-btn {
+    margin-top: auto;
 }
 
-.red-dot.read {
-    background-color: white;
+/*---------------------ERROR--------------------*/
+.input.error {
+    border: 1px solid var(--tomato);
+    background-color: hsl(3, 100%, 95%);
 }
 
-.message {
-    border: 1px solid;
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 7px;
+.error::placeholder {
+    color: var(--tomato);
 }
 
-.message:hover {
-    background-color: var(--light-grayish-blue-2);
-    cursor: pointer;
-    transition: 0.5s;
+.input-label {
+    display: flex;
+    justify-content: space-between;
 }
 
-.when {
-    color: var(--grayish-blue);
-    padding-top: .25rem;
+.error-msg {
+    visibility: hidden;
 }
 
-@media (min-width: 890px) {
-    .card {
-        margin: 2rem 0;
+.error-msg.error {
+    font-weight: 700;
+    color: var(--tomato);
+    visibility: visible;
+}
+
+/*----------------MEDIA QUERIES----------------*/
+@media (min-width: 23.5rem) {
+    .mobile-img {
+        min-width: 100%;
     }
 }
+
+@media (min-width: 53.125rem) {
+    /*-------CARD------*/
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .mobile-img {
+        display: none;
+    }
+
+    .desktop-img {
+        display: block;
+        padding: 1rem;
+    }
+
+    .card {
+        display: flex;
+        padding-left: 2rem;
+        border-radius: 30px;
+    }
+
+    .main {
+        align-self: center;
+    }
+
+    .container {
+        padding: 2rem;
+    }
+
+    .container__par {
+        padding-top: .5rem;
+        padding-bottom: .75rem;
+    }
+
+    .container__h1 {
+        font-size: 3.125rem;
+    }
+
+    /*-----SUCCESS MSG-----*/
+    .success-msg {
+        max-width: 26.875rem;
+        max-height: 26.875rem;
+        padding: 2rem !important;
+        gap: 1.5rem !important;
+        border-radius: 30px;
+    }
+
+    .dismiss-btn {
+        margin: 0;
+    }
+}
+
